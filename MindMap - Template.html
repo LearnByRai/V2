@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MindMap - Template</title>
+<style>
+:root{--bg:#f5f6f8;--fg:#1c2230;--dot:rgba(30,40,70,.16);--nav:rgba(255,255,255,.35);--sh:0 1px 3px rgba(20,30,60,.18),0 4px 10px -2px rgba(20,30,60,.22),0 8px 18px -6px rgba(20,30,60,.16);--r:#1f2937;--a:60% 38%;--b2:80% 92%;--t2:60% 20%;--b3:75% 96.5%;--t3:50% 24%;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+:root[data-theme=dark]{--bg:#12141a;--fg:#e8ebf2;--dot:rgba(255,255,255,.12);--nav:rgba(50,56,72,.35);--sh:0 1px 2px rgba(0,0,0,.55),0 4px 9px -1px rgba(0,0,0,.5),0 9px 18px -5px rgba(0,0,0,.65);--r:#4b5563;--a:45% 36%;--b2:32% 21%;--t2:80% 88%;--b3:28% 16%;--t3:70% 84%}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden}
+body{position:relative;background:var(--bg);color:var(--fg);font:500 14px/1.35 system-ui,sans-serif;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer}
+#v{position:absolute;inset:0;overflow:hidden;touch-action:none;cursor:grab;background:radial-gradient(circle closest-side,var(--dot) 10%,transparent 12%) 0 0/24px 24px}
+#v:active{cursor:grabbing}
+#c{position:absolute;left:0;top:0;transform-origin:0 0}
+#s{position:absolute;left:0;top:0;width:1px;height:1px;overflow:visible;pointer-events:none}
+#s path{fill:none;stroke-linecap:round;stroke:hsl(var(--h) 60% 58%);visibility:hidden}
+.n{position:absolute;left:0;top:0;width:max-content;max-width:250px;padding:9px 13px;border-radius:9px;font-size:14px;font-weight:600;line-height:1.3;box-shadow:var(--sh);cursor:pointer;transform-origin:0 50%;background:var(--b);color:var(--t);visibility:hidden;contain:layout style}
+.n.l{cursor:default}
+.n small{display:block;font-size:12px;font-weight:600;opacity:.85;margin-top:2px}
+.n i{font-style:normal;position:absolute;left:100%;top:50%;margin:-7px 0 0 6px;width:14px;height:14px;border-radius:50%;display:grid;place-items:center;background:hsl(var(--h) var(--a));color:#fff;font-size:10px;line-height:1;padding-bottom:1px;transition:opacity .25s,transform .25s}
+.d0 i{background:var(--r)}
+.n.o i{opacity:0;transform:scale(.4);pointer-events:none}
+.d0{--b:#1f2937;--t:#fff;font-size:16px;font-weight:800;padding:12px 16px}
+.d1{--b:hsl(var(--h) var(--a));--t:#fff;font-weight:800}
+.d2{--b:hsl(var(--h) var(--b2));--t:hsl(var(--h) var(--t2))}
+.d3{--b:hsl(var(--h) var(--b3));--t:hsl(var(--h) var(--t3))}
+.g{position:absolute;z-index:5;background:var(--nav);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+#th,#zm button{width:44px;height:44px;padding:0;line-height:1;display:flex;align-items:center;justify-content:center}
+#th{left:14px;top:14px;font-size:44px}
+#zm{right:14px;bottom:14px;display:flex;flex-direction:column;overflow:hidden}
+#zm button{font-size:20px}
+#zm button[data-z="0"]{font-family:'Segoe UI Symbol','Noto Sans Symbols 2','Noto Sans Symbols','DejaVu Sans',sans-serif;font-size:21px;font-variant-emoji:text}
+@media(hover:hover){.n:not(.l):hover{filter:brightness(1.07)}#zm button:hover{background:rgba(128,128,128,.16)}}
+</style>
+</head>
+<body>
+<div id="v"><div id="c"><svg id="s"></svg></div></div>
+<button id="th" class="g" aria-label="Ganti tema">○</button>
+<div id="zm" class="g"><button data-z="1.3">+</button><button data-z=".77">−</button><button data-z="0">⛶&#xFE0E;</button></div>
+<script>
+const $=s=>document.querySelector(s),v=$('#v'),c=$('#c'),sv=$('#s'),N=[],NS='http://www.w3.org/2000/svg',
+L=(a,b,e)=>a*(1-e)+b*e;
+const CFG={
+id:'mindmap',
+hues:[145,214,28,330,262],
+gap:8,
+col:46,
+grp:22,
+g1:10
+};
+const DATA=['Bahasa dalam KTI|Pertemuan ke-12',[
+['Ragam Bahasa Ilmiah',['Salah satu ragam pemakaian bahasa',['3 ciri menonjol',['Baku / standar','Lugas','Efektif']]]],
+['Bahasa Baku',[
+['Ejaan',['Pemakaian huruf','Penulisan kata','Pemakaian tanda baca','Penulisan unsur serapan']],
+['Pemilihan kata',['Kata yang baku','Tepat secara makna']],
+['Struktur kalimat',['Kelengkapan unsur','Keefektifan kalimat']]]],
+['Kelugasan Kalimat',['Tidak berbelit-belit','Tidak berbunga-bunga',['Beda dengan bahasa seni',['Seni: menuntut keindahan','Ilmiah: tidak perlu keindahan']]]],
+['Kalimat Efektif|ciri utama: hemat',[
+'Hapus subjek yang sama|"penulis" yang diulang cukup sekali',
+'Hapus sinonim berdampingan|agar supaya → agar; adalah merupakan → adalah',
+'Hapus makna jamak ganda|penerimaan-penerimaan → penerimaan']],
+['Latihan: Kesalahan Umum',[
+['Ejaan',[
+'Kata depan & imbuhan|di bayar → dibayar; kehadirat → ke hadirat',
+'Gabung / pisah|tidakberuwujud → tidak berwujud; sertamemiliki → serta memiliki',
+'Kata ulang|lainlain → lain-lain; perundangundangan → perundang-undangan',
+'Tidak baku / salah ketik|syah → sah; trend → tren; pembaharuan → pembaruan; Perdapatan → Pendapatan',
+'Peluluhan k|mengkomunikasikan → mengomunikasikan',
+'Tanda baca|koma pada perincian & setelah anak kalimat; tanpa koma sebelum "bahwa"',
+'Huruf kapital|bphtb → BPHTB (singkatan kapital semua)']],
+['Pilihan kata',[
+'Pleonasme|adalah merupakan; agar supaya; tersebut di atas; menurut … mengatakan',
+'Jamak ganda|penerimaan-penerimaan',
+'Kata depan|pada → kepada; terdiri → terdiri atas',
+'Kurang tepat|dalam menyelesaikan → untuk menyelesaikan']],
+['Kalimat',[
+'Tidak lengkap|tanpa subjek/predikat: "Dari pernyataan … mempertegas …"',
+'Tidak paralel|pembangunan dan memajukan → membangun dan memajukan; pemeliharaan → memelihara',
+'Tidak logis|"sehingga pentingnya Pemda …" → "sehingga Pemda perlu …"',
+'Boros|pengulangan "penulis" dan "perusahaan"']],
+['Kutipan & rujukan',[
+'Tanpa gelar|Dr. A. Gima Sugiama → Sugiama',
+'Format|(2013: 24—25); judul buku dimiringkan dan ditulis benar']],
+['Contoh perbaikan',[
+'Latihan 1|Puji syukur penulis panjatkan ke hadirat Tuhan Yang Mahakuasa yang telah memberikan kekuatan, berkat, dan kesempatan sehingga penulis dapat menyelesaikan karya tulis tugas akhir ini.',
+'Latihan 2|Berdasarkan uraian tersebut, penulis menyusun karya tulis tugas akhir berjudul …']]
+]]
+]];
+let W=[],an=0,cg=null,cam={x:0,y:0,k:1},bg={x:0,y:0},raf=0;
+const fn=document.createDocumentFragment(),fp=document.createDocumentFragment();
+function mk(a,d,p,hu){
+const s=typeof a=='string',[m,sub]=(s?a:a[0]).split('|'),n={d,p,k:[],open:false,vis:0},e=n.e=document.createElement('div');
+n.i=N.push(n)-1;e.n=n;
+e.className='n d'+Math.min(d,3)+(s?' l':'');e.style.setProperty('--h',hu);
+e.textContent=m;
+if(sub){const q=document.createElement('small');q.textContent=sub;e.append(q)}
+if(!s){const b=document.createElement('i');b.textContent='›';e.append(b)}
+fn.append(e);
+if(p){const q=n.pa=document.createElementNS(NS,'path');q.style.setProperty('--h',hu);q.setAttribute('stroke-width',d==1?2.2:1.5);fp.append(q)}
+if(!s)n.k=a[1].map((b,j)=>mk(b,d+1,n,d?hu:CFG.hues[j%CFG.hues.length]));
+return n;
+}
+const R=mk(DATA,0,null,0),K=CFG.id+'-open-'+N.length;
+c.append(fn);sv.append(fp);
+document.title='Mind Map · '+DATA[0].split('|')[0];
+function meas(){
+const mw=[];let x=0;
+N.forEach(n=>{n.w=n.e.offsetWidth;n.h=n.e.offsetHeight;mw[n.d]=Math.max(mw[n.d]||0,n.w)});
+W=mw.map(w=>{const r=x;x+=w+CFG.col;return r});
+}
+function lay(n,top){
+if(!n.open||!n.k.length){n.ty=top+n.h/2;return n.h+CFG.gap+(n.d==1?CFG.g1:0)}
+let y=top;n.k.forEach(k=>y+=lay(k,y));
+n.ty=(n.k[0].ty+n.k[n.k.length-1].ty)/2;
+return Math.max(y-top,n.h+CFG.gap)+(n.d==1||n.k.every(k=>!k.k.length)?CFG.grp:0);
+}
+function tg(n,a){
+if(a){n.gx=a[0];n.gy=a[1];n.go=0}else{n.gx=W[n.d];n.gy=n.ty;n.go=1}
+const b=a||(n.open?null:[n.gx+n.w,n.gy]);
+n.k.forEach(k=>tg(k,b));
+}
+const relay=()=>{lay(R,0);tg(R,null)};
+function ac(){
+c.style.transform=`translate(${cam.x}px,${cam.y}px) scale(${cam.k})`;
+const s=24*cam.k+'px';
+v.style.backgroundSize=s+' '+s;
+v.style.backgroundPosition=bg.x+'px '+bg.y+'px';
+}
+const sac=()=>raf||(raf=requestAnimationFrame(()=>{raf=0;ac()}));
+function draw(A){
+A.forEach(n=>{
+const e=n.e,o=n.o,pa=n.pa,vs=o>.02;
+if(vs!=n.vis){n.vis=vs;const s=vs?'visible':'hidden';e.style.visibility=s;if(pa)pa.style.visibility=s}
+e.style.opacity=o;
+e.style.transform=`translate(${n.x}px,${n.y-n.h/2}px) scale(${.85+.15*o})`;
+if(pa&&vs){const p=n.p,x1=p.x+p.w,m=(x1+n.x)/2;
+pa.setAttribute('d',`M${x1} ${p.y}C${m} ${p.y},${m} ${n.y},${n.x} ${n.y}`);pa.style.opacity=o*.85}
+});
+ac();
+}
+function go(d=230,snap){
+cancelAnimationFrame(an);
+const A=[],ch=n=>n.fx!=n.gx||n.fy!=n.gy||n.fo!=n.go;
+N.forEach(n=>{
+n.fx=n.x;n.fy=n.y;n.fo=n.o;
+if(n.o||n.go){if(snap||ch(n)||n.p&&ch(n.p))A.push(n)}
+else{n.x=n.gx;n.y=n.gy}
+});
+const c0={...cam},b0={...bg},t0=performance.now();
+(function st(t){
+const p=snap?1:Math.min(1,(t-t0)/d),e=p<.5?4*p*p*p:1-(-2*p+2)**3/2;
+A.forEach(n=>{n.x=L(n.fx,n.gx,e);n.y=L(n.fy,n.gy,e);n.o=L(n.fo,n.go,e)});
+if(cg){cam.x=L(c0.x,cg.x,e);cam.y=L(c0.y,cg.y,e);cam.k=L(c0.k,cg.k,e);bg.x=b0.x+cam.x-c0.x-(cg.cx||0)*e;bg.y=b0.y+cam.y-c0.y-(cg.cy||0)*e}
+draw(A);
+if(p<1)an=requestAnimationFrame(st);else cg=null;
+})(t0);
+}
+function fit(snap){
+let a=1e9,b=-1e9,l=1e9,r=-1e9;
+N.forEach(n=>{if(n.go){l=Math.min(l,n.gx);r=Math.max(r,n.gx+n.w);a=Math.min(a,n.gy-n.h/2);b=Math.max(b,n.gy+n.h/2)}});
+const w=v.clientWidth,h=v.clientHeight,
+m=Math.max(10,Math.min(26,Math.min(w,h)*.035)),
+k=Math.min(1.6,(w-2*m)/Math.max(1,r-l),(h-2*m)/Math.max(1,b-a));
+cg={k,x:(w-(r-l)*k)/2-l*k,y:(h-(b-a)*k)/2-a*k};
+go(300,snap);
+}
+const kz=f=>Math.min(2.5,Math.max(.1,cam.k*f));
+function zoomAt(x,y,f){
+const r=v.getBoundingClientRect(),k=kz(f),q=k/cam.k;
+x-=r.left;y-=r.top;cam.x=x-(x-cam.x)*q;cam.y=y-(y-cam.y)*q;bg.x=x-(x-bg.x)*q;bg.y=y-(y-bg.y)*q;cam.k=k;sac();
+}
+function zb(f){
+const w=v.clientWidth/2,h=v.clientHeight/2,k=kz(f),q=k/cam.k;
+cg={k,x:w-(w-cam.x)*q,y:h-(h-cam.y)*q,cx:(bg.x-cam.x)*(1-q),cy:(bg.y-cam.y)*(1-q)};go(150);
+}
+function tog(n){
+if(!n.k.length)return;
+n.open=!n.open;n.e.classList.toggle('o',n.open);
+const y0=n.y;relay();
+cg={x:cam.x,y:cam.y+(y0-n.gy)*cam.k,k:cam.k,cx:0,cy:(y0-n.gy)*cam.k};
+go();
+try{localStorage.setItem(K,JSON.stringify(N.filter(n=>n.open).map(n=>n.i)))}catch(e){}
+}
+const P=new Map();let mv=0,dn=null,pd=0;
+const pts=()=>[...P.values()],
+pdist=()=>{const q=pts();return q.length>1?Math.hypot(q[0][0]-q[1][0],q[0][1]-q[1][1]):0};
+v.onpointerdown=e=>{
+P.set(e.pointerId,[e.clientX,e.clientY]);
+if(P.size==1){mv=0;dn=e.target.closest('.n')}else{mv=99;pd=pdist();cg=null}
+};
+v.onpointermove=e=>{
+const p=P.get(e.pointerId);if(!p)return;
+const dx=e.clientX-p[0],dy=e.clientY-p[1];p[0]=e.clientX;p[1]=e.clientY;
+if(P.size>1){const d=pdist(),q=pts();if(pd)zoomAt((q[0][0]+q[1][0])/2,(q[0][1]+q[1][1])/2,d/pd);pd=d;return}
+mv+=Math.abs(dx)+Math.abs(dy);
+if(mv>6){cg=null;cam.x+=dx;cam.y+=dy;bg.x+=dx;bg.y+=dy;sac()}
+};
+const up=e=>{
+if(!P.has(e.pointerId))return;
+if(P.size==1&&mv<7&&dn&&e.type=='pointerup')tog(dn.n);
+P.delete(e.pointerId);
+};
+onpointerup=onpointercancel=up;
+v.addEventListener('wheel',e=>{e.preventDefault();cg=null;zoomAt(e.clientX,e.clientY,Math.exp(-e.deltaY*(e.ctrlKey?.01:.0015)))},{passive:false});
+$('#zm').onclick=e=>{const z=e.target.dataset.z;if(z!=null)+z?zb(+z):fit()};
+$('#th').onclick=()=>{const d=document.documentElement;d.dataset.theme=d.dataset.theme=='dark'?'light':'dark'};
+let a=[0];try{const s=JSON.parse(localStorage.getItem(K));if(Array.isArray(s))a=s}catch(e){}
+N.forEach(n=>{n.open=n.k.length>0&&a.includes(n.i);n.e.classList.toggle('o',n.open)});
+meas();relay();N.forEach(n=>{n.x=n.gx;n.y=n.gy;n.o=n.go});fit(1);
+</script>
+</body>
+</html>
