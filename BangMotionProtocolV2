@@ -1,0 +1,10 @@
+ Itu adalah pdf sumber dari dosen. Buat ulang materi tersebut dengan cara buatkan video ruangguru (konsep kilat yang menjelaskan keseluruhan) tapi outputnya bukan video melainkan html video explainer motion graphic animtion beserta audio penjelasnya pakai id aradi neural. Nah, htmlnya itu dlm bentuk html 16:9, bervisual lengkap seperti video ruangguru animated mktion graphic), pas dan enak untuk dilihat. Ukuran bit dan lama video tidak dibatasi).
+
+Soalnya materi kuliah gak ada di ruangguru. Gw cuman ngandelin ppt dari dosen buat sumber materinya tapi kesusahan memahami karena MUNGKIN tidak terstruktur, ambigu, bahasanya tidak jelas, visualisasi yang tidak mantap, kesalahan, penjelasan yang tidak mantap.
+
+Gunakan style cartoon stage.
+
+Gambar bisa generate pakai Gemini 3.1 image (tanpa higgsfield karena token gw habis) dan ambil beberapa gambar dari sumber di internet sebagai pelengkap. Untuk rumus2/hitung²an, gunakan render matematika (bukan generated ai). Animasi gunakan animated motion graphic boleh pakai svg.
+
+gunakan skill bang-motion dan skill higgsfield.
+saya rela nunggu lama gapapa. Selalu koreksi ulang dan recheck ulang di browser jika ada visualisasi yang eror dan tidak akurat (misal bagian grafik yang titik2nya gak sesuai ataupun apapun). Dan perbaiki hingga sempurna. Kerjakan otomatis hingga jadi total.

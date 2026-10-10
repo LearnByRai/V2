@@ -1,0 +1,35 @@
+Ajari saya isi materi PDF buatan dosen tersebut dari NOL dengan me-refine materinya agar MUDAH DIPAHAMI. Saya belum pernah belajar materi ini sama sekali, jadi pastikan substansi utuh dan tidak ada materi penting yang terlewat.
+
+1. TO THE POINT TETAPI TETAP DAGING. Fokus konsep inti, poin potensial ujian, dan jebakan umum. Jangan yapping agar point/konsep mudah saya dapatkan.
+2. Singkatan/Akronim: WAJIB langsung ditulis kepanjangan + artinya saat pertama kali muncul di tahap itu juga — jangan dikumpulkan terpisah di akhir.
+3. Koreksi kesalahan: Jika ada typo yang benar-benar fatal, rumus salah, atau konsep salah di PDF, koreksi dengan format: ⚠️ Koreksi: Di file tertulis X, yang benar Y, karena...
+4. Restrukturisasi: Jika materi PDF bertele-tele, susun ulang dengan bahasa efisien dan efektif. Jika materi mengurutkan tahapan, urutan, ataupun langkah yang kurang tepat, restrukturisasi yang paling tepat dan mudah. Tidak harus 100% ikut PDF, asal substansinya utuh.
+5. Contoh soal: 2-3 soal di akhir dan 1-2 soal di setiap anak materi. Soal yang memantapkan konsep beserta jawaban dan pembahasan to the point.
+6. Ajarkan dan jelaskan dengan bahasa SD mudah.
+
+Terapkan style:
+<style>
+  body {font-family: 'Manrope', sans-serif; margin: 0; padding: 0}
+  /*SIMPLE*/
+  .bg-white-purple { background-color: #ffffff; background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 40%, rgba(247, 242, 255, 1) 76%, rgba(238, 232, 255, 1) 90%, rgba(235, 217, 255, 1) 100%); color: #000000} 
+  /*COMPLEX*/
+  .bg-dark-purple { background: linear-gradient(rgba(1, 2, 4, 0.35), rgba(1, 2, 4, 0.35)), linear-gradient(135deg, rgba(23, 57, 84, 0.3) 0%, transparent 50%, rgba(61, 36, 101, 0.3) 100%), radial-gradient(ellipse at center, rgba(12, 16, 29, 0.95) 0%, rgba(18, 25, 43, 0.75) 30%, rgba(21, 21, 41, 0.4) 55%, transparent 85%), radial-gradient(circle at 0% 0%, rgba(37, 80, 111, 0.5) 0%, #142b3d 15%, #0c1a27 30%, transparent 70%) top left / 50vmax 50vmax no-repeat, radial-gradient(circle at 100% 0%, #3d2465 0%, #301c4f 15%, #1f1236 30%, transparent 70%) top right / 50vmax 50vmax no-repeat, radial-gradient(circle at 0% 100%, #173954 0%, #132d44 15%, #0f1f33 30%, transparent 70%) bottom left / 50vmax 50vmax no-repeat, radial-gradient(circle at 100% 100%, #5d4389 0%, #4c3370 15%, #3c2556 30%, transparent 70%) bottom right / 50vmax 50vmax no-repeat, linear-gradient(135deg, #132b44 0%, #0f1f33 25%, #12192b 50%, #151529 75%, #1d1637 100%); color: #ffffff; }
+  .bg-dark-red { background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, transparent 50%, rgba(80, 10, 30, 0.3) 100%), radial-gradient(ellipse at center, rgba(45, 8, 10, 0.95) 0%, rgba(45, 8, 10, 0.85) 30%, rgba(40, 7, 9, 0.5) 55%, transparent 85%), radial-gradient(circle at 0% 0%, #c23a3a 0%, #a52a2a 15%, #8b1a1a 30%, transparent 70%) top left / 50vmax 50vmax no-repeat, radial-gradient(circle at 100% 0%, #7a1a3a 0%, #6a1030 15%, #4a0a20 30%, transparent 70%) top right / 50vmax 50vmax no-repeat, radial-gradient(circle at 0% 100%, #6e1a1a 0%, #5c1414 15%, #3a0a0a 30%, transparent 70%) bottom left / 50vmax 50vmax no-repeat, radial-gradient(circle at 100% 100%, #9e2a4a 0%, #852040 15%, #5a1030 30%, transparent 70%) bottom right / 50vmax 50vmax no-repeat, linear-gradient(135deg, #3a1010 0%, #2a0808 25%, #1a0303 50%, #100101 75%, #0a0000 100%); color: #ffffff}
+</style>
+
+ATURAN STRUKTUR & VISUAL HIGHLIGHTING:
+1. Tanpa navigasi apapun.
+2. Pemilihan Background: Gunakan `bg-dark-purple` untuk penjelasan sederhana/definisi awal. Gunakan `bg-white-purple` untuk materi lanjutan/analisis. Gunakan `bg-dark-red` HANYA untuk section contoh soal beserta pembahasannya (tanpa border/box, seolah murni menyatu dengan background). Pastikan section menutupi layar tanpa celah margin/padding putih di pinggir layar.
+3. Highlighting Kata Kunci: Gunakan tag `<mark>` HANYA pada kata/frasa inti (kata hubung dan tanda baca tidak ikut). 
+   - Pada `bg-dark-purple`: gunakan `<mark style="background-color:#F5D454;color:#000000;padding:0;border-radius:0">`
+   - Pada `bg-white-purple`: gunakan `<mark style="background-color:#A82244;color:#FFFFFF;padding:0;border-radius:0">`
+   - Untuk teks penting tanpa blok stabilo: warna teks buat `#F5D454` (di dark bg) atau `#A82244` (di white bg).
+   - Untuk tren naik [↑] / turun [↓]: Di dark bg gunakan bg-highlight `#CFFFC7` (naik) & `#FFCDD2` (turun) dengan teks hitam. Di white bg gunakan `#2E7900` (naik) & `#A82244` (turun) dengan teks putih.
+   - Pada teks pertanyaan/soal (bukan jawaban): Cukup beri warna kuning dan lebih bold untuk teks yang di-highlight TANPA blok background-color stabilo. Warna kalimat biasa tetap putih.
+   
+4. Visualisasi Materi: Jangan hanya pakai teks! Visualisasikan gambar, tabel, grafik, kurva, infografis, matriks, timeline, denah/layout, skema, dashboard, struktur, ikon, chart, peta, peta spasial, flow, diagram, tabel akuntansi, dan lain-lain. Untuk ilustrasi informal/konseptual, buat visualisasi UNIK & KREATIF (langsung render via SVG/CSS kreatif, jangan hanya ide visual) agar mudah diingat secara visual. Untuk data formal/baku (seperti tabel akuntansi/format standar), gunakan tampilan standar baku agar tetap akurat. Visual BUKAN tipe animasi. Tetap lihat PDF yang dikirim agar substansi tidak melenceng dari yang utama walau konten yang digenerate bebas tidak harus sama seperti PDF.
+5. Seluruh teks berfont Manrope SemiBold, KECUALI teks yang di-highlight berfont Manrope Bold/ExtraBold.
+6. Hitung-hitungan, notasi, angka, simbol, dan rumus-rumus DIRENDER oleh format matematika dari cdn/js online (bukan font Manrope).
+7. Pastikan seluruh VISUAL dan FORMAT MATEMATIKA konten html jangan sampai ada yang eror dan tidak terbaca.
+
+Outputnya dalam bentuk satu html complete. Buatkan tampilannya support android dan enak dilihat di android.

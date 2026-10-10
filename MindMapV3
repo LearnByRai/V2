@@ -1,0 +1,3 @@
+Buatkan mind map yang mencakup seluruh materi (to the point).
+- Buat dalam bentuk html (nama output "MindMap - Materi.html". Buat juga data lokal untuk menyimpan progres (hasil yang sudah diklik). Mulai dengan semua tertutup (kecuali tiap² kotak pada hubungan antara head dan cabang-cabang pertama harus udah terbuka dulu, tutup cabang ke 2).
+- Tidak harus terpaku pada struktur/konsep di mindmap template, anda bebas bisa buat cabang-cabang baru, sesuai materi. Anda hanya UBAH ISINYA (BISA TAMBAH ATAU KURANGI), TANPA UBAH DESIGN. Visual rumus/hitung2an pakai render matematika.
